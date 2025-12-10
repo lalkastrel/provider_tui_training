@@ -17,4 +17,8 @@ export class Page2Component {
   protected get notes() {
     return this.noteService.getNotes()
   }
+
+  protected get isError() {
+    return this.noteService.getError()
+  }; 
 }
