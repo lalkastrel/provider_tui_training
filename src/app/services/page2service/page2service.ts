@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 export interface Note {
   id: number,
@@ -11,8 +12,7 @@ export interface Note {
   providedIn: 'root',
 })
 export class Page2service {
-  private readonly apiUrl = 'http://localhost:3000/notes'
-
+  private readonly apiUrl = environment.apiUrl + '/notes'
   private notes = signal<Note[]>([])
   private isError = signal<Boolean>(false)
 
