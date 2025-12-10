@@ -1,1 +1,9 @@
-<p>page2-component works!</p>
+@for (note of notes(); track note.id) {
+    <div>
+        <h3>{{ note.title }}</h3>
+        <p>{{ note.content }}</p>
+        <small>id: {{ note.id }}</small>
+    </div>
+} @empty {
+    <p> 0 notes </p>
+}

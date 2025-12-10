@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TuiPager} from '@taiga-ui/kit';
 import {TuiButton, TuiIcon} from '@taiga-ui/core';
 import { ChangeDetectionStrategy } from '@angular/core';
-import { IconsService, IconItem } from '../../services/icons-service';
+import { IconsService, IconItem } from '../../services/icons/icons-service';
 
 @Component({
   selector: 'app-page1-component',
