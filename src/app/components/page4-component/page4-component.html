@@ -1,0 +1,14 @@
+@if (getAdminState()) {
+    <p>Текущее состояние: админ</p>
+} @else {
+    <p>Текущее состояние: пользователь</p>
+}
+
+<button
+    size="m"
+    tuiButton
+    type="button"
+    (click)="navigateToAdminPage()"
+>
+    Перейти на страницу админа
+</button>

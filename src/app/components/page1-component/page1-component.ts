@@ -3,6 +3,7 @@ import {TuiPager} from '@taiga-ui/kit';
 import {TuiButton, TuiIcon} from '@taiga-ui/core';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { IconsService, IconItem } from '../../services/icons/icons-service';
+import { AdminService } from '../../services/admin-service/admin-service';
 
 @Component({
   selector: 'app-page1-component',
@@ -16,7 +17,7 @@ export class Page1Component implements OnInit {
   currentIcon?: IconItem;
   currentIndex = 0;
   totalIcons = 0;
-  constructor(private iconsService: IconsService) {}
+  constructor(private iconsService: IconsService, private adminService: AdminService) {}
 
   ngOnInit(): void {
     this.loadIcons();
@@ -45,5 +46,13 @@ export class Page1Component implements OnInit {
     if (this.currentIndex < this.totalIcons - 1) {
       this.setCurrentIcon(this.currentIndex + 1);
     }
+  }
+
+  protected changeToAdmin() {
+    this.adminService.changeToAdmin()
+  }
+    
+  protected changeToUser() {
+    this.adminService.changeToUser()
   }
 }
