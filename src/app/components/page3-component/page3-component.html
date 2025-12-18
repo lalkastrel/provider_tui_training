@@ -1,1 +1,25 @@
-<p>page3-component works!</p>
+<label tuiLabel>
+    Введите a
+    <tui-textfield tuiTextfieldSize="s">
+        <textarea
+            [value]="aValue()"
+            (input)="aValue.set($any($event.target).value)"
+            placeholder="1"
+            tuiTextarea
+        ></textarea>
+    </tui-textfield>
+</label>
+<label tuiLabel>
+    Введите b
+    <tui-textfield tuiTextfieldSize="s">
+        <textarea
+            [value]="bValue()"
+            (input)="bValue.set($any($event.target).value)"
+            placeholder="1"
+            tuiTextarea
+        ></textarea>
+    </tui-textfield>
+</label>
+<label tuiLabel class="equation">
+    a<span>b</span> = {{ aValue() }} <span>{{ bValue() }}</span> ={{ pow_res() }}
+</label>
