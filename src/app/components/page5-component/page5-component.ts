@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormArray, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TuiIcon } from '@taiga-ui/core';
 import { ChangeDetectorRef } from '@angular/core';
+import { signal } from '@angular/core';
 
 @Component({
   selector: 'app-page5-component',
@@ -11,7 +12,7 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class Page5Component {
   fb = inject(FormBuilder);
-  cdr = inject(ChangeDetectorRef)
+  //cdr = inject(ChangeDetectorRef)
 
   baseInfoForm = this.fb.group({
     fullName: this.fb.group({
@@ -29,19 +30,18 @@ export class Page5Component {
 
   addHobbie() {
     this.hobbiesArray.push(this.fb.control(''))
-    this.cdr.detectChanges()
   }
 
   deleteHobbie(index: number) {
-    this.cdr.detectChanges()
+    console.info('before', this.hobbiesArray.value)
     this.hobbiesArray.removeAt(index);
-    this.cdr.detectChanges()
+    console.info('after', this.hobbiesArray.value)
 
     if (this.hobbiesArray.length === 0) {
       this.addHobbie();
     }
-    this.cdr.detectChanges()
   }
+
 
   constructor() {}
 }

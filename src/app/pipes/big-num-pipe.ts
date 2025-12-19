@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class BigNumPipe implements PipeTransform {
 
   transform(value: string | number): string {
-    if (value === null || value === undefined) return '';
+    if (!value) return '';
     const num = typeof value === 'string' ? parseFloat(value) : value;
     return num.toLocaleString('fullwide', { 
       useGrouping: false,

@@ -18,11 +18,11 @@
     <h2>Хобби</h2>
     <button type="button" (click)="addHobbie()">Добавить хобби</button>
     <div formArrayName="hobbies" class="hobbies">
-        @for (hobbie of hobbiesArray.controls; track $index; let i = $index) {
+        @for (hobbie of hobbiesArray.controls; track hobbie; let i = $index) {
             <div>
                 <label for="hobbie-{{ i }}">Хобби {{ i + 1 }}:</label>
                 <div class="hobbie-input">
-                    <input id="hobbie-{{ i }}" type="text" [formControlName]="i"/>
+                    <input id="hobbie-{{ i }}" type="text" [formControlName]="$index"/>
                     <tui-icon icon="delete" [style.color]="'red'" (click)="deleteHobbie(i)"></tui-icon>
                 </div>
             </div>
