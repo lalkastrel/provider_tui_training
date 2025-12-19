@@ -1,7 +1,7 @@
 @if (isError()) {
     <p> Ошибка соединения с сервером</p>
 } @else {
-    @for (note of notes(); track note.id) {
+    @for (note of notes$ | async; track note.id) {
         <div>
             <h3>{{ note.title }}</h3>
             <p>{{ note.content }}</p>
