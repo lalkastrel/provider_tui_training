@@ -1,0 +1,33 @@
+<div [formGroup]="baseInfoForm" class="form">
+    <div formGroupName="fullName">
+        <h2>ФИО</h2>
+
+        <label for="firstName">Имя</label>
+        <input id="firstName" type="text" formControlName="firstName" />
+
+        <label for="secondName">Фамилия</label>
+        <input id="secondName" type="text" formControlName="secondName" />
+
+        <label for="surname">Отчество</label>
+        <input id="surname" type="text" formControlName="surname" />
+    </div>
+
+    <label for="age">Возраст</label>
+    <input id="age" type="text" formControlName="age" />
+
+    <h2>Хобби</h2>
+    <button type="button" (click)="addHobbie()">Добавить хобби</button>
+    <div formArrayName="hobbies" class="hobbies">
+        @for (hobbie of hobbiesArray.controls; track $index; let i = $index) {
+            <div>
+                <label for="hobbie-{{ i }}">Хобби {{ i + 1 }}:</label>
+                <div class="hobbie-input">
+                    <input id="hobbie-{{ i }}" type="text" [formControlName]="i"/>
+                    <tui-icon icon="delete" [style.color]="'red'" (click)="deleteHobbie(i)"></tui-icon>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<button [disabled]="!baseInfoForm.valid">Сохранить портфолио</button>

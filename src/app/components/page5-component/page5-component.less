@@ -1,0 +1,29 @@
+.form {
+    margin: 3em 3em 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 40vw;
+    div {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3em; 
+    }
+
+    .hobbies div {
+        margin-bottom: 0em;
+    }
+    
+    .hobbie-input {
+        flex-direction: row;
+        justify-content: space-between;
+        input {
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 800px) {
+        max-width: 95%;
+    }
+}
+
+
